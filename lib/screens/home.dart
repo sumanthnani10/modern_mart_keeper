@@ -13,6 +13,7 @@ import '../service/notification_handler.dart';
 import '../storage.dart';
 import 'item_list.dart';
 import 'products.dart';
+import 'sliders.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -302,6 +303,26 @@ class _HomeState extends State<Home> {
             InkWell(
               onTap: () {
                 Navigator.of(context).pop();
+                Navigator.push(context, createRoute(Sliders()));
+              },
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: FlatButton.icon(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    Navigator.push(context, createRoute(Sliders()));
+                  },
+                  icon: Icon(Icons.slideshow),
+                  label: Text(
+                    'Banners',
+                    style: TextStyle(fontSize: 15.0),
+                  ),
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.of(context).pop();
                 Navigator.push(context, createRoute(Offers()));
               },
               child: Align(
@@ -415,6 +436,8 @@ class _HomeState extends State<Home> {
       event.data()['categories'].forEach((e) {
         Storage.categories.add(e.toString());
       });
+      // print(event.data());
+      Storage.sliders = event.data()['sliders'];
     });
     FirebaseFirestore.instance
         .collection('shop')

@@ -6,8 +6,7 @@ class Storage {
   static List<String> categories = [];
   static Map<String, dynamic> products = new Map<String, dynamic>();
   static Map<String, dynamic> shopDetails = new Map<String, dynamic>();
-
-//  static List<DocumentSnapshot> customersList;
+  static List<dynamic> sliders = [];
   static Map<String, dynamic> customers = new Map<String, dynamic>();
 
   static const APP_NAME = 'Modern Mart';
